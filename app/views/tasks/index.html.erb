@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<h1>List of Tasks</h1>
+
+<%= link_to 'New Task', new_task_path %>
+
+<% @tasks.each do |task| %>
+  <div>
+    <h3><%= link_to task.title, task_path(task) %></h3>
+    <p><%= task.details %></p>
+    <p>Completed: <%= task.completed ? 'Yes' : 'No' %></p>
+    <%= link_to 'Edit', edit_task_path(task) %>
+  </div>
+<% end %>
+
+</body>
+</html>
